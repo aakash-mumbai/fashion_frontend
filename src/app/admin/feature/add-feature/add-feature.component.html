@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h4>feature Product Form</h4>
+  </div>
+
+    <form [formGroup]="featureProduct" (ngSubmit)="submit(featureProduct.value)">
+      <div class="col-md-12">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Description</label>
+        <angular-editor [placeholder]="'Enter text here...'" formControlName="description"></angular-editor>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Feature</label>
+        <angular-editor [placeholder]="'Enter text here...'" formControlName="features"></angular-editor>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Image (300 * 300)</label>
+            <input type="file" class="form-control-file" (change)="(mode === 'new') ? showPreview($event, 1) : editPreview($event, 1)" id="exampleFormControlFile1">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Image (400 * 500)</label>
+            <input type="file" class="form-control-file" (change)="(mode === 'new') ? showPreview($event, 2) : editPreview($event, 2)" id="exampleFormControlFile1">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">Image (500 * 600)</label>
+            <input type="file" class="form-control-file" (change)="(mode === 'new') ? showPreview($event, 3) : editPreview($event, 3)" id="exampleFormControlFile1">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <img *ngIf="imageSrc" [src]="imageSrc" width="200" height="150" />
+        </div>
+        <div class="col-md-4">
+          <img *ngIf="imageSrc" [src]="imageSrc1" width="200" height="150" />
+        </div>
+        <div class="col-md-4">
+          <img *ngIf="imageSrc" [src]="imageSrc2" width="200" height="150" />
+        </div>
+      </div>
+      <hr />
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary"
+          [disabled]="(imageSrc === '' || imageSrc1 === '' || imageSrc2 === ''
+            || !featureProduct.valid) ? true : false">Save</button>
+        <div class="error">{{errMsg}}</div>
+      </div>
+    </form>
+  </div>
+

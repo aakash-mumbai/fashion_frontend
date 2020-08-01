@@ -1,0 +1,25 @@
+<app-main-header></app-main-header>
+<br />
+<br />
+<hr>
+<div class="col-md-12">
+  <h5><a href="#" (click)="home()">Home</a> / {{this.name}}</h5>
+</div>
+<hr />
+<section>
+  <div class="row">
+
+    <div class="col-md-4" *ngFor="let type of categoryList" (click)="subCategory(type)">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="title">{{type.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image class="typeImg" src="{{baseUrl + type.file}}" alt="{{type.name}}">
+      </mat-card>
+    </div>
+  </div>
+</section>
+<section>
+  <app-feature-product></app-feature-product>
+</section>

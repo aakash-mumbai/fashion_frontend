@@ -1,0 +1,14 @@
+
+
+<div class="container-fluid" [ngStyle]="{'background': (isAdminLogin) ? '#c5cae9' : '#fafafa'}">
+  <div *ngIf="isAdminLogin == true || commonService.isAdminLoggedIn == true">
+    <app-header></app-header>
+    <app-sidebar></app-sidebar>
+
+  </div>
+  <div [ngStyle]="{'margin-left': (isToggle || commonService.isSidebarOpen) ? '250px' : '0px', 'transition' : '0.3s'}">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

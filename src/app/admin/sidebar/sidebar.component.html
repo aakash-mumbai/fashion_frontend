@@ -1,0 +1,12 @@
+<div id="mySidenav" class="sidenav" [ngStyle]="{'width': (isToggle) ? '250px' : '0px'}">
+  <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+
+  <ul class="menu">
+    <li (click)="navigate('dashboard')">Dashboard</li>
+    <li (click)="navigate('type')">Type</li>
+    <li (click)="navigate('slider')">Slider</li>
+    <li (click)="navigate('feature')">Featured Product</li>
+    <li (click)="navigate('category')">Category</li>
+    <li (click)="navigate('subcategory')">Sub Category</li>
+  </ul>
+</div>

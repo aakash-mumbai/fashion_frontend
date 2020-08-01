@@ -1,0 +1,41 @@
+<app-main-header></app-main-header>
+
+<!-- Slider -->
+<section>
+  <div class="row">
+    <div class="col-md-12">
+      <ngx-slick-carousel class="carousel"
+                        #slickModal="slick-carousel"
+                        [config]="slideConfig">
+        <div ngxSlickItem *ngFor="let slide of sliderList" class="slide">
+              <img class="sliderImg" src="{{ baseUrl + slide.file }}" alt="" width="100%">
+        </div>
+    </ngx-slick-carousel>
+      <!-- <carousel>
+        <slide *ngFor="let img of sliderList; let i = index">
+          <img class="sliderImg" src="{{baseUrl + img.file}}" alt="{{i}}" style="display: block; width: 100%;">
+        </slide>
+      </carousel> -->
+    </div>
+  </div>
+</section>
+<!-- Types -->
+<br />
+<br />
+<br />
+<section>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let type of typeList" (click)="categoryType(type)">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title class="title">{{type.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image class="typeImg" src="{{baseUrl + type.file}}" alt="{{type.name}}">
+      </mat-card>
+    </div>
+  </div>
+</section>
+<section>
+  <app-feature-product></app-feature-product>
+</section>

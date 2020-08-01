@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Image (300 * 300)</label>
+      <input type="file" class="form-control-file" (change)="showPreview($event, 1)" id="exampleFormControlFile1">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Image (400 * 500)</label>
+      <input type="file" class="form-control-file" (change)="showPreview($event, 2)" id="exampleFormControlFile1">
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Image (500 * 600)</label>
+      <input type="file" class="form-control-file" (change)="showPreview($event, 3)" id="exampleFormControlFile1">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <img *ngIf="imageSrc" [src]="imageSrc" width="200" height="150" />
+  </div>
+  <div class="col-md-4">
+    <img *ngIf="imageSrc" [src]="imageSrc1" width="200" height="150" />
+  </div>
+  <div class="col-md-4">
+    <img *ngIf="imageSrc" [src]="imageSrc2" width="200" height="150" />
+  </div>
+</div>
+<br />
+<div class="row">
+  <div class="col-md-12 text-center">
+    <button type="button" class="btn btn-default" (click)="cancel()" >Cancel</button>&nbsp;&nbsp;
+    <button class="btn btn-success" (click)="save()" [disabled]="(imageSrc === '' && imageSrc1 === '' && imageSrc2 === '') ? true : false">Save</button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-md-12">
+    <div class="mat-elevation-z8">
+
+      <table>
+        <tr>
+          <th>Sr. No</th>
+          <th>File 1</th>
+          <th>File 2</th>
+          <th>File 3</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let img of images; let i = index">
+          <td>{{ i + 1}}</td>
+          <td>
+            <img src="{{baseurl + img.file}}" />
+          </td>
+          <td>
+            <img src="{{baseurl + img.file1}}" />
+          </td>
+          <td>
+            <img src="{{baseurl + img.file2}}" />
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="delete(img._id)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

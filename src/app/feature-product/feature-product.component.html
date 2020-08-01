@@ -1,0 +1,14 @@
+<div class="row feature" *ngIf="featureProduct.length > 0">
+  <div class="col-md-12">
+    <h2 class="title">Feature Product</h2>
+  </div>
+  <div class="col-md-12">
+    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let slide of featureProduct" class="slide" (click)="feature(slide._id)">
+        <img src="{{ baseUrl + slide.file }}" alt="" width="100%">
+        <br />
+        <h3>{{slide.name}}</h3>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+
+<!-- <div>
+  <div class="header" [ngStyle]="{'margin-left': (isToggle) ? '250px' : '0px', 'width': (isToggle) ? '250px' : '0px'}">
+    <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; open</span>
+  </div>
+</div> -->
+<nav class="navbar justify-content-between navbar-dark bg-dark">
+  <a class="navbar-brand">
+    <div class="header" *ngIf="!isToggle" [ngStyle]="{'margin-left': (isToggle) ? '250px' : '0px', 'width': (isToggle) ? '250px' : '0px'}">
+      <span style="font-size:30px;cursor:pointer;color: #fff" (click)="openNav()">&#9776;</span>
+    </div>
+  </a>
+  <form class="form-inline">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+  </form>
+</nav>

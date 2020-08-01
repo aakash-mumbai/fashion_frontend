@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h4>Slider Form</h4>
+  </div>
+  <div class="col-md-12">
+    <form (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="exampleFormControlFile1">Image</label>
+        <input type="file" class="form-control-file" (change)="showPreview($event)" id="exampleFormControlFile1">
+      </div>
+      <div class="col-md-12">
+        <img *ngIf="imageSrc" [src]="imageSrc" width="200" height="150" />
+      </div>
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>&nbsp;&nbsp;
+        <button type="submit" class="btn btn-primary" [disabled]="(imageSrc === '') ? true : false">Save</button>
+        <div class="error">{{errMsg}}</div>
+      </div>
+    </form>
+  </div>
+</div>
